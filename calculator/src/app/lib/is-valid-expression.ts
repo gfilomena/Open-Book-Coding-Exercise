@@ -1,6 +1,6 @@
-export function isValidExpression(expr) {
+export function isValidExpression(expr: string) {
   // Remove any whitespace from the expression
-  expr = expr.replace(/\s+/g, "");
+  expr = expr.replace(/\s+/g, '');
 
   // Define a regex pattern to match valid expressions
   const pattern =
@@ -16,9 +16,9 @@ export function isValidExpression(expr) {
   let closedParentheses = 0;
 
   for (let i = 0; i < expr.length; i++) {
-    if (expr[i] === "(") {
+    if (expr[i] === '(') {
       openParentheses++;
-    } else if (expr[i] === ")") {
+    } else if (expr[i] === ')') {
       closedParentheses++;
     }
 
@@ -36,10 +36,10 @@ export function isValidExpression(expr) {
   // Check if the expression ends with an operator
   const lastChar = expr[expr.length - 1];
   if (
-    lastChar === "+" ||
-    lastChar === "-" ||
-    lastChar === "*" ||
-    lastChar === "/"
+    lastChar === '+' ||
+    lastChar === '-' ||
+    lastChar === '*' ||
+    lastChar === '/'
   ) {
     return false;
   }
@@ -48,15 +48,12 @@ export function isValidExpression(expr) {
   return true;
 }
 
-console.log(isValidExpression("3 + 2 + 4")); // true
-console.log(isValidExpression("+2")); // true
-console.log(isValidExpression("-2")); // true
-console.log(isValidExpression("sin(sin(30) + cos(20))")); // true
-console.log(isValidExpression("sin(30) + cos(20)")); // true
-console.log(isValidExpression("sin(30")); // false
-console.log(isValidExpression("(3 + +")); // false
-console.log(isValidExpression("3+")); // false
-
-//console.log(isValidExpression("4 - 8"));    // false
-
-// console.log(isValidExpression("8 * sin("));    // true
+// TEST CASES:
+// console.log(isValidExpression('3 + 2 + 4')); // true
+// console.log(isValidExpression('+2')); // true
+// console.log(isValidExpression('-2')); // true
+// console.log(isValidExpression('sin(sin(30) + cos(20))')); // true
+// console.log(isValidExpression('sin(30) + cos(20)')); // true
+// console.log(isValidExpression('sin(30')); // false
+// console.log(isValidExpression('(3 + +')); // false
+// console.log(isValidExpression('3+')); // false

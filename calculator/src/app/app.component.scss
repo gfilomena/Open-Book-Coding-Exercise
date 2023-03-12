@@ -1,0 +1,10 @@
+@media (orientation: landscape) {
+    body {
+        min-width: 800px;
+    }
+  }
+  @media (orientation: portrait) {
+    body {
+      min-width: 500px;
+    }
+  }
