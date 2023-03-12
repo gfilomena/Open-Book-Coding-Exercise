@@ -56,7 +56,3 @@ console.log(isValidExpression("sin(30) + cos(20)")); // true
 console.log(isValidExpression("sin(30")); // false
 console.log(isValidExpression("(3 + +")); // false
 console.log(isValidExpression("3+")); // false
-
-//console.log(isValidExpression("4 - 8"));    // false
-
-// console.log(isValidExpression("8 * sin("));    // true

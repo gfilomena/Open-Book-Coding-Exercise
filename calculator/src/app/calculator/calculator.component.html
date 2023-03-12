@@ -1,40 +1,40 @@
-<div>
-    <
-    <input type="text" [(ngModel)]="displayValue" disabled>
-    <table>
-      <tr>
-        <td><button (click)="onButtonClick('7')">7</button></td>
-        <td><button (click)="onButtonClick('8')">8</button></td>
-        <td><button (click)="onButtonClick('9')">9</button></td>
-        <td><button (click)="onButtonClick('/')">/</button></td>
-      </tr>
-      <tr>
-        <td><button (click)="onButtonClick('4')">4</button></td>
-        <td><button (click)="onButtonClick('5')">5</button></td>
-        <td><button (click)="onButtonClick('6')">6</button></td>
-        <td><button (click)="onButtonClick('*')">*</button></td>
-      </tr>
-      <tr>
-        <td><button (click)="onButtonClick('1')">1</button></td>
-        <td><button (click)="onButtonClick('2')">2</button></td>
-        <td><button (click)="onButtonClick('3')">3</button></td>
-        <td><button (click)="onButtonClick('-')">-</button></td>
-      </tr>
-      <tr>
-        <td><button (click)="onButtonClick('0')">0</button></td>
-        <td><button (click)="onButtonClick('.')">.</button></td>
-        <td><button (click)="onButtonClick('=')">=</button></td>
-        <td><button (click)="onButtonClick('+')">+</button></td>
-      </tr>
-      <tr>
-        <td><button (click)="onButtonClick('sin')">sin</button></td>
-        <td><button (click)="onButtonClick('cos')">cos</button></td>
-        <td><button (click)="onButtonClick('tan')">tan</button></td>
-      </tr>
-      <tr>
-        <td><button (click)="onButtonClick('C')">C</button></td>
-        <td><button (click)="onButtonClick('(')">(</button></td>
-        <td><button (click)="onButtonClick(')')">)</button></td>
-      </tr>
-    </table>
+<section class="calculator-container">
+  <div class="calculator-screen" [ngClass]="{ 'not-valid': !isValid }">
+    {{ displayValue }}
   </div>
+  <span *ngIf="!isValid" class="error-message">
+    The expression is NOT valid!</span
+  >
+  <div class="calculator-keyboard">
+    <div class="calculator-key" (click)="handleKey('1')">1</div>
+    <div class="calculator-key" (click)="handleKey('2')">2</div>
+    <div class="calculator-key" (click)="handleKey('3')">3</div>
+    <div class="calculator-key" (click)="handleKey('4')">4</div>
+    <div class="calculator-key" (click)="handleKey('5')">5</div>
+    <div class="calculator-key" (click)="handleKey('6')">6</div>
+    <div class="calculator-key" (click)="handleKey('7')">7</div>
+    <div class="calculator-key" (click)="handleKey('8')">8</div>
+    <div class="calculator-key" (click)="handleKey('9')">9</div>
+    <div class="calculator-key" (click)="handleKey('0')">0</div>
+    <div class="calculator-key" (click)="handleKey('+')">+</div>
+    <div class="calculator-key" (click)="handleKey('-')">-</div>
+    <div class="calculator-key" (click)="handleKey('*')">*</div>
+    <div class="calculator-key" (click)="handleKey('/')">/</div>
+    <div class="calculator-key" (click)="handleKey('sin(')">sin</div>
+    <div class="calculator-key" (click)="handleKey('cos(')">cos</div>
+    <div class="calculator-key" (click)="handleKey('tan(')">tan</div>
+    <div class="calculator-key" (click)="handleKey('RAND')">RAND</div>
+    <div class="calculator-key" (click)="handleKey('(')">(</div>
+    <div class="calculator-key" (click)="handleKey(')')">)</div>
+    <div class="calculator-key" (click)="handleKey('C')">C</div>
+  </div>
+</section>
+
+<section class="history">
+  <h3>History - last 5 expression and the result</h3>
+  <ul>
+    <li *ngFor="let history of listHistory">
+      {{ history }}
+    </li>
+  </ul>
+</section>
